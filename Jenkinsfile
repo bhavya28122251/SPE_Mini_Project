@@ -17,6 +17,22 @@ pipeline {
             }
         }
 
+        stage('Build') {
+            steps {
+                script {
+                    sh 'mvn clean package'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    sh 'mvn test'
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
@@ -25,7 +41,7 @@ pipeline {
             }
         }
 
-        stage('Push Docker Images') {
+        stage('Push Docker Image') {
             steps {
                 script {
                     docker.withRegistry('', 'DockerHubCred') {
