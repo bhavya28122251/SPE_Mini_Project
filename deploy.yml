@@ -18,5 +18,8 @@
       service:
         name: docker
         state: started
+    -name: Remove existing calculator container (if exists)
+      command: docker rm -f calculator
+      ignore_errors: yes
     - name: Running container
       shell: docker run -it -d --name calculator bhavya28122251/scientific-calculator
