@@ -1,9 +1,15 @@
 ---
-- name: Pull Docker Image from Docker Hub
+- name: Deploy Scientific Calculator
   hosts: localhost
   remote_user: bhavya
   become: false
+
   tasks:
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+
     - name: Pull Docker Image
       docker_image:
         name: "bhavya28122251/scientific-calculator"
@@ -13,13 +19,10 @@
     - name: Display Docker Pull Result
       debug:
         var: docker_pull_result
-        
-    - name: Start Docker service
-      service:
-        name: docker
-        state: started
-    -name: Remove existing calculator container (if exists)
+
+    - name: Remove existing calculator container (if exists)
       command: docker rm -f calculator
       ignore_errors: yes
+
     - name: Running container
       shell: docker run -it -d --name calculator bhavya28122251/scientific-calculator
