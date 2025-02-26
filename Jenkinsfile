@@ -31,7 +31,6 @@ pipeline {
             steps {
                 script{
                     docker.withRegistry('', 'DockerHubCred') {
-                    sh 'docker tag calculator bhavya28122251/scientific-calculator'
                     sh 'docker push bhavya28122251/scientific-calculator'
                     }
                  }
