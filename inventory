@@ -10,4 +10,6 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 [localhost]
 localhost ansible_ssh_user=bhavya ansible_ssh_private_key_file=~/.ssh/id_rsa
+
+comment
 */
