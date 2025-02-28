@@ -41,6 +41,7 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Press Enter to Start");
+        scanner.nextLine();
 
         while (true) {
             System.out.println("\nScientific Calculator:");
