@@ -40,6 +40,7 @@ public class App {
     // Main Method - Menu Driven Program
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Press Enter to Start");
 
         while (true) {
             System.out.println("\nScientific Calculator:");
